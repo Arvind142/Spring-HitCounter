@@ -2,23 +2,33 @@ package com.personal.HitCounter.RestController;
 
 import java.nio.charset.Charset;
 
+import com.personal.HitCounter.Entity.CreateImage;
 import com.personal.HitCounter.Entity.ProfileCounterMap;
 import com.personal.HitCounter.Entity.RepoCounterMap;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HitCounterController{
     private ProfileCounterMap userHolder ;
     private RepoCounterMap repoHolder ;
+private CreateImage createImage;
+
     public HitCounterController(){
         System.out.println("Constructor Initialized");
         userHolder = new ProfileCounterMap();
         repoHolder = new RepoCounterMap();
+         createImage = new CreateImage();
     }
 
+    @ResponseBody
     @RequestMapping(value = "/profileViewCounter", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
     public Object getProfileViewCounter(@RequestParam(value = "userName",defaultValue = "") String userName){
         System.out.println("request receieved with username as :"+userName);
@@ -30,6 +40,13 @@ public class HitCounterController{
             return "UserName should be alphanumeric!!!";
         System.out.println("userName check Pass for username : "+userName);
         
+        // int value = userHolder.getCount(userName);
+        // byte[] resp = createImage.getImage(value).toString().getBytes(Charset.defaultCharset());
+        // return ResponseEntity.ok()
+        //     .contentLength(resp.length)
+        //     .contentType(MediaType.IMAGE_JPEG)
+        //     .body(resp);
+
         return String.valueOf(userHolder.getCount(userName)).getBytes(Charset.defaultCharset());
     }
 
