@@ -1,24 +1,11 @@
 package com.personal.HitCounter.RestController;
 
-import java.nio.charset.Charset;
-import java.util.Arrays;
-
 import com.personal.HitCounter.Entity.ProfileCounterMap;
 import com.personal.HitCounter.Entity.RepoCounterMap;
-
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import jakarta.websocket.server.PathParam;
 
 @RestController
 public class HitCounterController{
