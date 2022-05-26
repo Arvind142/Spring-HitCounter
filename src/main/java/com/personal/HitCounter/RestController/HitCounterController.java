@@ -1,5 +1,7 @@
 package com.personal.HitCounter.RestController;
 
+import java.nio.charset.Charset;
+
 import com.personal.HitCounter.Entity.ProfileCounterMap;
 import com.personal.HitCounter.Entity.RepoCounterMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +30,7 @@ public class HitCounterController{
             return "UserName should be alphanumeric!!!";
         System.out.println("userName check Pass for username : "+userName);
         
-        return String.valueOf(userHolder.getCount(userName)).getBytes();
+        return String.valueOf(userHolder.getCount(userName)).getBytes(Charset.defaultCharset());
     }
 
     @RequestMapping(value = "/repositoryViewCounter", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
@@ -55,6 +57,6 @@ public class HitCounterController{
         
         System.out.println("userName check Pass for username : "+userName+" & repo : "+repoString);
         
-        return String.valueOf(repoHolder.getCount(userName,repoString)).getBytes();
+        return String.valueOf(repoHolder.getCount(userName,repoString)).getBytes(Charset.defaultCharset());
     }
 }
