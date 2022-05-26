@@ -10,10 +10,4 @@ public class HitCounter_WebController {
     public String getMethodName() {
         return "index.html";
     }
-
-    @GetMapping("/error")
-    public String getErrorPage() {
-        return "error.html";
-    }
-    
 }
