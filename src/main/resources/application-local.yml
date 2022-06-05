@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: new_se3ret_password_test
+    url: jdbc:postgresql://localhost:5432/trackerDB
+
+# server information
+server:
+  port: 5000
+
+# logging
+logging:
+  level:
+    com: TRACE
