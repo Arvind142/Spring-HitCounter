@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${JDBC_USERNAME}
+    password: ${JDBC_PASSWORD}
+    url: ${JDBC_URL}
+
+# server information
+server:
+  port: 80
+
+# logging
+logging:
+  level:
+    com: WARN
