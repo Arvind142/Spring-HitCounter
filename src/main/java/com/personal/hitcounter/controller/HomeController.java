@@ -1,7 +1,6 @@
-package com.personal.HitCounter.controller;
+package com.personal.hitcounter.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,15 +9,14 @@ import java.util.Map;
 
 
 @RestController
-public class Home {
+public class HomeController {
 
     @Value("${spring.application.version}")
     private String appVersion;
 
-    @RequestMapping("/")
-    @GetMapping("/")
-    public Map getHomeCall(){
-        Map map = new HashMap();
+    @RequestMapping(value ="/")
+    public Map<String,Object> getHomeCall(){
+        Map<String,Object> map = new HashMap<>();
         map.put("App version",appVersion);
         return map;
     }

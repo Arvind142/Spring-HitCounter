@@ -1,4 +1,4 @@
-package com.personal.HitCounter.config;
+package com.personal.hitcounter.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -26,9 +26,10 @@ public class PersistenceConfigurator {
      */
     @Bean
     public DataSource setDataSource(){
-        DataSourceBuilder builder = DataSourceBuilder.create();
+        DataSourceBuilder<?> builder = DataSourceBuilder.create();
 
         // check if given url contains jdbc appended before, else add it here!
+        jdbcUrl = jdbcUrl.toLowerCase();
         if(!jdbcUrl.startsWith("jdbc:postgresql://")){
             jdbcUrl="jdbc:postgresql://"+jdbcUrl;
         }
