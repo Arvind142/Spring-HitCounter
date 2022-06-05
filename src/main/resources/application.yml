@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: Hit-Counter
+    version: 1.01
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: none
+    show-sql: false
